@@ -1,0 +1,1075 @@
+
+
+@font-face {
+  font-family: 'A Love of Thunder', 'DIESEL ITALIC PERSONAL USE', 'MPF DOTIMPACT', 
+  'American Captain', 'AWAKENNING STEEL Personal Use', 'Boba Cups', 'CHERL___', 
+  'Crackvetica','LOUD AND CLEAR PERSONAL USE','RUSTED PERSONAL USE', 'Lucian_Des.ttf';                  /* En esta seccion añadimos todas las fuentes que vamos a ocupar en nuestra app web */
+  
+  src: url('../assets/fonts/A Love of Thunder.ttf') format(truetype);                 /* Hay que indicar la ubicacion de cada typo de fuente añadida siempre al principio  de la configuracion */
+  src: url('../assets/fonts/DIESEL ITALIC PERSONAL USE.ttf') format(truetype);
+  src: url('../assets/fonts/MPF DOTIMPACT.ttf') format(truetype);
+  src: url('../assets/fonts/American Captain.ttf') format(truetype);
+  src: url('../assets/fonts/AWAKENNING STEEL Personal Use.ttf') format(truetype);
+  src: url('../assets/fonts/Boba Cups.ttf') format(truetype);
+  src: url('../assets/fonts/CHERL___.ttf') format(truetype);
+  src: url('../assets/fonts/Crackvetica.ttf') format(truetype);
+  src: url('../assets/fonts/LOUD AND CLEAR PERSONAL USE.ttf') format(truetype);
+  src: url('../assets/fonts/RUSTED PERSONAL USE.ttf') format(truetype);
+  src: url('assets/fonts/Lucian_Des.ttf') format(truetype);
+}
+
+@import url('normalize.css');
+@import url('bootstrap.min.css');
+
+
+/* =================================================================================================== */
+/* =================================================================================================== */
+/* =================================================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Cuerpo del archivo html */
+body {                                                       /* Nombramos el apartado al que le queremos aplicar las modificaciones*/
+  font-family: 'Lucian_Des.ttf', cursive;                                /* Se modifica el tipo de fuente del texto */
+  background-color: #0057f8;                                  /* Modifica el color de fondo */
+  margin: 0;
+  padding: 0;                                               /* Se aplica para que todo rellene todo el cuerpo de la pagina*/
+  width: 100%;
+  height: 100%;
+  position: relative;
+  align-items: center;
+  justify-items: center;
+}
+
+  .container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  header {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    display: inline-block;
+    flex-direction: column;
+    margin: 0;
+    }
+
+  /* =================================================================================================== */
+  /* Titulo dentro de la página */
+  h1 {
+    font-family: 'DIESEL ITALIC PERSONAL USE';          /* Se modifica el tipo de fuente del texto */
+    font-size: 80px;                                    /* Modifica el tamaño del texto */
+    text-align: center;                                 /* Alinea el texto, centro, derecha, izquierda, justificado */
+    color:rgb(186, 253, 0);                           /* Cambia el color del texto */
+    margin-top: 5px;                                   /* Espacio externo arriba */
+    margin-bottom: 10px;                                /* Espacio externo abajo */
+    text-shadow: 0 0 40px rgba(0, 0, 0, 0.925);       /* Sombra de Texto */
+  }
+
+
+  /* =================================================================================================== */
+  #idioma {
+    margin: 10px;
+    text-align: center;                                  /* Alinea el texto, centro, derecha, izquierda, justificado */
+  }
+
+  #idioma > button {
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 10px 0 10px;
+    border: none;
+    font-weight: bold;
+    text-shadow: 0 0 10px #b11717;
+  }
+
+  #idioma > button:hover {
+    font-weight: bold;
+    background-color: #a120ec;
+    color: bisque;
+    text-shadow: 0 0 5px yellow;
+  }
+
+ /* =================================================================================================== */
+
+ .contenedorMenu {
+  position: fixed;
+  top: 10%;
+  left: 1%;
+
+ }
+
+  .navegMenu {
+    background-color: rgba(0, 255, 255, 0.432);
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+    .navegMenu >.menuIco {
+      background-color: yellow;
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    .navegMenu >.menuIco:hover {
+      background-color: rgb(173, 173, 67);
+      cursor: pointer;
+    }
+
+    .listMenu {
+      font-size: 15px;
+      width: 150px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+    }
+
+    .oculto{
+      display: none;
+    }
+
+      .listMenu >li {
+        position: relative;
+        background-color: black;
+        margin: 1px;
+        padding: 5px;
+        border: none;
+      }
+
+      .listMenu >li:hover {
+        background-color: rgb(36, 17, 17);
+        margin-left: 10px;
+        text-shadow: 0 0 5px;
+      }
+
+        li > a{
+          color: wheat;
+        }
+
+  /* =================================================================================================== */
+  /* Descripción */
+  .descripcion {  
+    font-family: 'Courier New';                         /* Se modifica el tipo de fuente del texto */
+    font-size: 15px;                                    /* Modifica el tamaño del texto */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.884);       /* Sombra de Texto */
+    padding: 20px 20px;
+    justify-content: center;
+    text-align: justify;                                /* Alinea el texto, centro, derecha, izquierda, justificado */
+    color: aliceblue;                                 /* Cambia el color del texto */ 
+    margin: 5px;
+  }
+    
+    /*margin-top: 30px;                                   /* Espacio externo arriba 
+    margin-bottom: 10px;                                /* Espacio externo abajo 
+    margin-left: 100px;                                 /* Espacio externo izquierda
+    margin-right: 100px;                                /* Espacio externo derecha*/ 
+
+  /* =================================================================================================== */
+  #formul {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  #formulario {
+    width: 300px;
+    height: 300px;
+    background-color: #00ffff81;
+    font-family: Arial;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;  
+    box-shadow: 0 0 20px #00000085;
+    margin: 20px auto;
+  }
+
+  /* background-color: rgba(0, 255, 255, 0.658);       /* Modifica el color del fondo */
+  /* font-family: Arial black;                         /* Se modifica el tipo de fuente del texto */
+  /* color:rgb(33, 0, 182);                            /* Cambia el color del texto */ 
+  /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.432);       /* Sombra de Texto */
+    /*width: 500px;
+    height: 50vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 50%;
+    transform: translate(-50%);
+    align-items: center;
+    text-align: center;                                 /* Alinea el texto, centro, derecha, izquierda, justificado */
+  /* font-size: 30px;                                    /* Modifica el tamaño del texto */
+  /*  border-radius: 20px;                                /* Redondeamos el Cuadro en sus 4 esquinas */
+  /*  padding: 10px 15px;                                 /* Margen interno */
+  /*  box-shadow: 0 3px 5px #00000098;                  /* Sombra de caja */
+  /* margin-top: 20px;                                   /* Espacio externo arriba 
+    margin-bottom: 10px;                                /* Espacio externo abajo 
+    margin-left: 350px;                                 /* Espacio externo izquierda 
+    margin-right: 350px;                                /* Espacio externo derecha */
+
+  .generoStyle {   
+    font-family: 'Franklin Gothic Medium';
+    font-size: 25px;
+    color: #ff6600;
+    text-shadow: 0 0 10px #000000;
+    width: 90%;
+    padding: 0;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  #generoOp {
+    width: 90%;
+    font-size: 18px;
+    border-radius: 4px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin: 5px;
+    border: none;
+  }
+
+  .fechaST {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 25px;
+    color: #ff6600;
+    text-shadow: 0 0 10px #000000;
+    width: 90%;
+    padding: 0;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  #fechaS {
+    width: 90%;
+    font-size: 18px;
+    border-radius: 4px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin: 5px;
+    font-weight: bold;
+    border: none;
+  }
+
+  .calcularE {
+    width: 90%;
+    background: linear-gradient(to right, rgb(17, 0, 250), #ff8a05 );   /* Aqui ya se ejecuta el color de manera degradada */
+    font-family: sans-serif;
+    font-size: 30px;
+    color: #2afc00;
+    box-shadow: 0 0 5px #000;
+    text-shadow: 0 2px 3px #000;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 0px;
+  }
+
+  #espacio{
+    background-color: #000;
+    margin: 0;
+  }
+
+
+  .resetF {
+    width: 90%;
+    background: linear-gradient(to right, #ff8a05 , rgb(17, 0, 250) );   /* Aqui ya se ejecuta el color de manera degradada */
+    font-family: sans-serif;
+    font-size: 30px;
+    color: #fc0000;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #000;
+    text-shadow: 0 1px 2px #000000f8;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  /* Dar efecto cuando el mouse pase por encima de los botones */
+
+  .calcularE:hover {  /* Con el :hover podemos indicar que ocurra un movimiento cuando pasamos el mouse por encima */
+    font-size: 29px;
+    margin-bottom: 1px;
+    color: #fc7a00;
+    background: linear-gradient(to right, rgb(53, 207, 253), #ea05ff );   /* Aqui ya se ejecuta el color de manera degradada */
+    }
+
+  .resetF:hover {  /* Con el :hover podemos indicar que ocurra un movimiento cuando pasamos el mouse por encima */
+    font-size: 29px;
+    color: #fc7a00;
+    background: linear-gradient(to right, #ea05ff, rgb(53, 207, 253) );   /* Aqui ya se ejecuta el color de manera degradada */
+  }
+
+  /* =================================================================================================== */
+  #capturar {
+    background: linear-gradient(to right, #ff8a05 , rgb(17, 0, 250) );   /* Aqui ya se ejecuta el color de manera degradada */
+    font-size: 45px;
+    color: #b11717;
+    font-weight: bold;
+    text-align: center;                                 /* Alinea el texto, centro, derecha, izquierda, justificado */
+    margin-top: 35px;
+    margin-bottom: 35px;
+    border: none;
+    border-radius: 10px;
+    text-shadow: 0 0 7px #000000;
+    box-shadow: 0 0 22px #fd5000b0;
+  }
+
+
+  #capturar:hover {  /* Con el :hover podemos indicar que ocurra un movimiento cuando pasamos el mouse por encima */
+    font-size: 44px;
+    color: #fc7a00;
+    background: linear-gradient(to right, #ea05ff, rgb(53, 207, 253) );   /* Aqui ya se ejecuta el color de manera degradada */
+    margin-bottom: 36.5px;
+  }
+
+  /* =================================================================================================== */
+  #resultado {
+    border: 5px solid #790;
+    max-width: 500px;
+    font-family: 'Lucian_Schoenschrift_CAT';
+    font-size: 40px;
+    color: #ff6600;
+    background-color: rgb(0, 0, 0);                   /* Modifica el color del fondo de resultado*/
+    box-shadow: 0 0 60px rgba(238, 255, 0, 0.507);      /* Sombra de Cuadro */
+    margin: 20px auto;
+    /*margin-top: 10px;                                   /* Espacio externo arriba */
+    /*margin-bottom: 10px;         */                       /* Espacio externo abajo */
+    /*margin-left: 200px;                                 /* Espacio externo izquierda */
+    /*margin-right: 200px;                                /* Espacio externo derecha */
+    text-align: center;                                 /* Alinea el texto, centro, derecha, izquierda, justificado */
+    border-radius: 40px;                                /* Redondeamos el Cuadro en sus 4 esquinas */
+    padding: 10px;
+    text-shadow: 0 2px 3px #aa7af7c2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+  }
+
+  /* =================================================================================================== */
+  #edad2 {
+    
+    color: #fff;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 30px #fff;
+  }
+
+  #edad {
+    width: 200px;
+    padding: 10px;
+    letter-spacing: 5px;
+    font-family: Crackvetica;
+    margin: 20px auto;                             /* Espacio externo abajo */
+    font-size: 75px;                                    /* Modifica el tamaño del texto */
+    text-shadow: 0 0 10px rgb(255, 255, 255);         /* Sombra de Texto */
+    border-radius: 50%;                                /* Redondeamos el Cuadro en sus 4 esquinas */
+    font-weight: bold;                                  /* Texto en negrita */
+    box-shadow: 0 0 20px rgba(222, 226, 185, 0.699);          /* Sombra de Cuadro */
+    border: none;
+    text-align: center;
+    background-color: #b729f852;
+    }
+
+  /* =================================================================================================== */
+  #horoscopo {
+    letter-spacing: 10px;
+    font-family: 'Crackvetica';
+    font-weight: bold;                                  /* Se modifica el tipo de fuente del texto */
+    margin-top: 25px;                                   /* Espacio externo arriba */
+    margin-bottom: 0;                                /* Espacio externo abajo */
+    font-size: 50px;                                    /* Modifica el tamaño del texto */
+    font-weight: bold;                                  /* Texto en negrita */
+    Color: rgb(72, 62, 204);                          /* Cambia el color del texto */
+    border-radius: 20px;                                /* Redondeamos el Cuadro en sus 4 esquinas */
+    text-shadow: 1px 3px 10px rgba(87, 255, 95, 0.671);   /* Sombra de Texto */
+    /*box-shadow: 0 3px 10px rgba(255, 255, 255, 0.5);    /* Sombra de Cuadro */
+    padding: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  /* =================================================================================================== */
+  #significado {
+    font-family: 'Lucida Sans';                         /* Se modifica el tipo de fuente del texto */
+    font-weight: bold;                                  /* Texto en negrita */
+    padding: 0 10px;
+    margin: 5px auto;                                 /* Espacio externo derecha */
+    font-size: 25px;                                    /* Modifica el tamaño del texto */
+    Color: rgb(29, 246, 253);                         /* Cambia el color del texto */
+
+  }
+
+  /* =================================================================================================== */
+  #consejo {
+    font-family: 'Courier New';                         /* Se modifica el tipo de fuente del texto */
+    font-weight: bold;                                  /* Texto en negrita */
+    font-size: 25px;                                    /* Modifica el tamaño del texto */
+    margin: 10px 20px;  
+    
+    Color: rgb(162, 0, 255);                          /* Cambia el color del texto */
+  }
+
+
+  /* =================================================================================================== */
+  .capturita {
+    margin: 15px auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    text-align: center;
+  }
+
+
+  #resultadoImg {
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+    font-family: 'Courier New';
+    font-size: 12px;
+    color: #fff;
+    border-radius: 10px;
+    }
+
+  #preview-container {
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px auto;
+    border: 2px solid #ca0c0c;
+    max-width: 100%;
+    max-height: 100%;
+    
+    }
+
+  .gresult {
+    font-size: 25px;
+    margin: 10px;
+    background: linear-gradient(#456, #790);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: aqua;
+    text-shadow: 0 0 10px #ff6600;
+    box-shadow: 0 0 18px #ff6600;
+      
+  }
+  .gresult:hover {
+    background: linear-gradient(rgb(98, 123, 148), rgb(143, 182, 2));
+    color: #ff9838;
+
+  }
+
+  /* =================================================================================================== */
+  #contador {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: rgba(38, 0, 109, 0.582);          /* Modifica el color de fondo */
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.5);    /* Sombra de Cuadro */
+    font-family: system-ui;                               /* Se modifica el tipo de fuente del texto */
+    font-size: 25px;                                    /* Modifica el tamaño del texto */
+    border-radius: 20px;                                /* Redondeamos el Cuadro en sus 4 esquinas */
+    text-align: center;                                 /* Alinea el texto, centro, derecha, izquierda, justificado */                                   
+    Color: #ff6600;                           /* Cambia el color del texto */
+    padding: 10px;                                      /* Tamaño de borde interno */
+    text-shadow: 0 0 10px #ffffff;
+  }
+
+  /* =================================================================================================== */
+  #viral {
+    background-color: rgba(0, 0, 0, 0.61);                     /* Modifica el color de fondo */
+    max-width: 900px;
+    margin: 25px auto;
+    /*margin-top: 40px;                                      Espacio externo arriba 
+    margin-bottom: 40px;                                   Espacio externo abajo 
+    margin-left: 100px;                                    Espacio externo izquierda 
+    margin-right: 100px;                                   Espacio externo derecha */
+    border-radius: 30px;                                  /* Redondeamos el Cuadro en sus 4 esquinas */
+    font-family: 'Courier New';                           /* Se modifica el tipo de fuente del texto */
+    font-size: 25px;                                      /* Modifica el tamaño del texto */
+    text-align: center;                                   /* Alinea el texto, centro, derecha, izquierda, justificado */
+    color: aliceblue;                                   /* Cambia el color del texto */
+    padding: 10px 30px;
+    text-align: justify;
+    box-shadow: 0 0 15px #000; 
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  /* =================================================================================================== */
+  #compartir {
+    margin: 20px auto;
+    text-align: center;                                  /* Alinea el texto, centro, derecha, izquierda, justificado */
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 20px #000000a2;
+    padding: 10px 20px;
+    margin: 25px auto;
+    border-radius: 20px;
+    padding: 15px;
+  }
+
+  #compartir-instagram {
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  #compartir-facebook {
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  #compartir-twiter{
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  #compartir-instagram:hover{
+    background: linear-gradient(#a120ec, #ee9b4e, #a120ec );
+    border-radius: 5px;
+    border: 1px solid white;
+    margin: 0 4px;
+    
+    box-shadow: -5px 5px 5px #2afc00;
+  }
+
+  #compartir-facebook:hover{
+    background-color: #0c65ca;
+    border-radius: 5px;
+    border: 1px solid white;
+    box-shadow: 0 5px 5px #2afc00;
+    margin: 1px 4px;
+  }
+
+  #compartir-twiter:hover{
+    background-color: #35a9d6;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin: 1px 4px;
+    box-shadow: 5px 5px 5px #2afc00;
+  }
+
+  /* =================================================================================================== */
+  #sobreMi {
+    max-width: 800px;
+    background-color: rgb(0, 0, 0, 0.61);                     /* Modifica el color de fondo */
+    margin: 25px auto;
+    border-radius: 20px;                                  /* Redondeamos el Cuadro en sus 4 esquinas */
+    font-family: 'Courier New';                           /* Se modifica el tipo de fuente del texto */
+    font-size: 25px;                                      /* Modifica el tamaño del texto */
+    color: aliceblue;                                   /* Cambia el color del texto */
+    padding: 10px 30px;
+    text-align: justify;
+    box-shadow: 0 0 15px #000;
+  }
+
+  #Beta {
+    text-align: center;
+  }
+
+  /* =================================================================================================== */
+  #desarrollador {
+    max-width: 200px;
+    font-family: 'Courier New';                          /* Se modifica el tipo de fuente del texto */
+    font-size: 12px;                                     /* Modifica el tamaño del texto */
+    margin: 10px auto;
+    text-align: center;                                  /* Alinea el texto, centro, derecha, izquierda, justificado */
+    color: aliceblue;                                  /* Cambia el color del texto */
+    border: none;
+    box-shadow: 0 0 20px #ffffffa2;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-shadow: 0 0 10px #000000;
+  }
+
+  #desarrollador:hover{
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .redesSociales {
+    display: flex;
+    flex-direction: column;
+  }
+
+    .redesSociales >h2 {
+      color: #ffffff;
+      text-shadow: 0 0 10px #fc7a00;
+    }
+
+    .iconosRedes {
+      display: flex;
+      justify-content: center;
+    }
+
+    .iconosRedes .redesSo {
+      margin: 10px;
+      width: 50px;
+      box-shadow: 0 0 10px #fc7a00;
+      border-radius: 50%;
+    }
+
+    .iconosRedes .redesSo:hover {
+      width: 60px;
+      margin-bottom: auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .fb-comments {
+      margin: 20px auto;
+      padding: 10px;
+      background-color: goldenrod;
+      border-radius: 20px;
+    }
+    h6 {
+      font-size: 45px;
+      text-align: center;
+      color: white;
+      text-shadow: 0 0 20px yellow;
+    }
+/*=================================================================================================*/
+
+
+
+#chat-window {
+  border: 10px solid crimson;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 50px;
+  height: 100%;
+}
+
+#chat-window.mini {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(120, 153, 0, 0);
+  border: none;
+  box-shadow: 0 0 0;
+  display: none;
+}
+  
+#chat-window.mini #chat-container {
+  display: none;
+}
+
+
+#chat-container.minimized #chat-header {
+  display: none;
+}
+
+#chat-window.minimized #minimize-chat-btn {
+  display: none;
+}
+/*
+#chat-container.minimized #chat-messages {
+  display: none;
+}*/
+
+#chat-container.minimized #chat-form {
+  display: none;
+}
+
+
+#botonMinMax {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  color: bisque;
+  text-shadow: 0 0 5px;
+  background-color: rgba(120, 153, 0, 0.651);
+  border: 1px solid rgb(144, 197, 38);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(170, 248, 82, 0.562);
+  width: 70px;
+  height: 70px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+}
+
+#botonMinMax:hover {
+  background-color: rgba(200, 235, 75, 0.651);
+  color: rgb(211, 46, 17);
+}
+
+
+#chat-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 500px;
+  background-color: #110303ce;
+  border: 2px solid #aa17bd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  margin-right: 2px;
+  display: flex;
+  
+}
+
+  .minimized {
+    display: none;
+  }
+
+  #chat-header {
+    background-color: rgba(120, 153, 0, 0.658);
+    padding: 10px;
+    display: flex;
+    position: relative;
+  }
+
+  #minChat {
+    background-color: rgba(120, 153, 0, 0.514);
+    top: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    position: absolute;
+    box-shadow: 0 0 3px bisque;
+    border-radius: 8px;
+  }
+  
+
+  #minChat:hover {
+    background-color: rgba(148, 189, 3, 0.712);
+  }
+
+  .tit {
+    max-width: 260px;
+    height: 60px;
+    position: relative;
+  }
+
+
+  #chat-header  h2  {
+    margin: 0 auto;
+    display: block;
+    color: bisque;
+    text-shadow: 0 0 5px;
+    position: absolute;
+  }
+
+  #chat-header  p {
+    margin: 5px auto;
+    display: block;
+    color: crimson;
+    text-shadow: 0 0 5px bisque;
+    position: absolute;
+  }
+
+    /*==============================================================================*/
+    #chat-messages {
+      background-color: rgba(190, 135, 222, 0.24);
+      width: 91%;
+      height: 300px;
+ 
+      padding: 10px;
+      color: #f2f2f2;
+      border:  3px solid yellowgreen;
+    }
+
+   
+    
+    #chat-form {
+      background-color: #179cbd6e;
+      max-width: 290px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      border-radius: 10px;
+      margin: 10px;
+      border: 3px solid yellow;
+    }
+    
+    #chat-form input[type="text"] {
+      flex: 1px;
+      margin: 2px;
+      padding: 3px 1px;
+    }
+    
+    #chat-form button[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #chat-form button[type="submit"]:hover {
+      background-color: #397e3b;
+      
+    }
+    
+    
+    
+
+
+    
+  /* =================================================================================================== */
+
+  @media (max-width: 600px) {
+  body {
+    width: 98%;
+    margin: 0;
+    padding: 0;
+  }
+
+  h6 {
+    font-size: 30px;
+  }
+
+  .navegMenu >.menuIco {
+    width: 35px;
+
+  }
+
+    header {
+      max-width: 600px;
+      margin: 5px 5px;
+    }
+
+      h1 {
+        font-size: 60px;
+        margin: 10px 10px;
+        text-align: center;
+      }
+    #idioma {
+      align-items: center;
+      margin: 10px 10px;
+    }
+  .descripcion {
+    font-size: 12px;
+    margin: auto 10px;
+    }
+
+  #capturar {
+    font-size: 25px;
+    margin: 10px auto;
+  }
+  #capturar:hover {
+    font-size: 23px;
+    margin-bottom: 12px;
+  }
+
+  .form {
+    width: 98%;
+    margin: auto 5px;
+    font-size: 15px;
+  }
+
+  #generoOp {
+    font-size: 15px;
+    margin: auto 10px;
+  }
+
+  #fechaS {
+    font-size: 15px;
+    margin: auto 10px;
+  }
+
+  .calcularE{
+    font-size: 20px;
+    margin: auto 10px;
+    padding: 10px 0;
+    border: none;
+  }
+
+  .calcularE:hover {
+    font-size: 19px;
+    margin-top: 7px;
+  }
+
+  .resetF {
+    font-size: 20px;
+    margin: auto 10px;
+    padding: 10px 0;
+    border: none;
+  }
+
+  .resetF:hover {
+    font-size: 19px;
+    margin-top: 5px;
+  }
+
+  #formul {
+    margin: 10px auto;
+  }
+
+  #resultado {
+    font-size: 18px;
+    margin: 10px auto;
+  }
+
+  #edad {
+    text-align: center;
+    font-size: 30px;
+    margin: 10px auto;
+  }
+
+  #horoscopo {
+    font-size: 30px;
+  }
+
+  #significado {
+    font-size: 18px;
+  }
+
+  #consejo {
+    font-size: 18px;
+    text-align: center;
+    padding: 0;
+  }
+
+  #contador{
+    margin: 10px 20px;
+    font-size: 15px;
+
+  }
+
+  #viral {
+    margin: 20px 10px;
+    font-size: 12px;
+  }
+
+  #compartir {
+    margin: 10px 10px;
+    font-size: 15px;
+  }
+
+  #compartir-twiter {
+    margin: 5px 5px;
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  #compartir-twiter:hover {
+    margin-bottom: 7px;
+    font-size: 15px;
+  }
+
+  #compartir-instagram {
+    margin: 5px;
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  #compartir-instagram:hover {
+
+    font-size: 15px;
+  }
+
+  #compartir-facebook {
+    margin: 5px;
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  #compartir-facebook:hover {
+
+    font-size: 15px;
+  }
+
+  #sobreMi {
+    margin: 20px 10px;
+    font-size: 15px;
+  }
+
+  #desarrollador {
+    margin-top: 20px;
+  }
+
+  #contador {
+    margin: auto ;
+  }
+
+  .redesSociales{
+    margin: 25px auto 5px;
+    width: 98%;
+  }
+
+  .iconosRedes .redesSo {
+    width: 25px;
+  }
+
+  .iconosRedes .redesSo:hover {
+    width: 40px;
+    margin: auto;
+  }
+
+  }
+
+
+  /* =================================================================================================== */
+  /* Inicio de Sesion */
+  /*form {
+    font-family: Arial black;                         /* Se modifica el tipo de fuente del texto */ 
+  /* border-radius: 20px;                                /* Redondeamos el Cuadro en sus 4 esquinas */
+  /* margin-top: 10px;                                   /* Espacio externo arriba */
+    /*margin-bottom: 10px;                                /* Espacio externo abajo */
+    /*margin-right: 100px;                                /* Espacio externo derecha */
+  /* text-align: right;                                  /* Alinea el texto, centro, derecha, izquierda, justificado */                                  
+    /*color:rgb(255, 255, 255);                         /* Cambia el color del texto */
+    /*text-shadow: 0 0 10px rgba(0, 0, 0, 0.548);       /* Sombra de Texto */
+    /*list-style: none;                                   /* Quita los puntos de la lista */
+  /*}*/
+
+
+

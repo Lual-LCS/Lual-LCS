@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8"> <!-- El (charset="UFT-8") reconose caracteres especiales como (ñ, tildes y demas caracteres especiales) -->
+  
+  <!-- Esta linea lo que nos permite es que nustra configuracion en style permita que la pantalla sea ajustable para dispositivos moviles. -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Conoce Tu Edad</title>              <!-- Este es el nombre que se mostrara en la pestaña del navegador -->
+  <link rel="stylesheet" href="style.css">   <!-- Vinculamos el archivo que aplicara los cambios visuales de su pagina. -->
+  
+  <!-- AÑADIR ICONO A LA PESTAÑA DE NUESTRA PAGINA -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#1c3156">
+  <meta name="theme-color" content="#004af1">
+
+
+
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>               <!-- Firebase App (el primer script siempre debe ser este) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLDKVBDLCS"></script>         <!-- Aquí va el código de seguimiento de Google Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>              <!-- Firebase Authentication -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>            Almacenamiento en Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>          <!-- Base de datos de firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-functions.js"></script>         <!-- Funciones en firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>         <!-- Librería de Firestore -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+  
+
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+
+<!---------------------------------------------------------------------------------------------------------->
+
+<!-- CONFIGURACION PARA LOGUEARSE CON FACEBOOK PARA PODER COMENTAR -->
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 147091411698176,
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v11.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', '-jssdk'));
+</script>
+
+
+<script>
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+</script>
+
+
+<script>
+  function statusChangeCallback(response) {
+    if (response.status === 'connected') {
+      alert("Bienvenido!! As ingresado correctamente");
+      // El usuario inició sesión en su cuenta de Facebook y autorizó su aplicación
+      // Ahora puede permitir que el usuario comente en su sitio web
+    } else {
+      alert("Lo siento!! Decidiste no ingresar.");
+      // El usuario no inició sesión en su cuenta de Facebook o no autorizó su aplicación
+      // No permita que el usuario comente en su sitio web
+    }
+  }
+</script>
+
+
+<!---------------------------------------------------------------------------------------------------------->
+<script src="appJS/chatConfig.js"></script>
+</head>
+
+
+<body>
+  <header>
+    <h1 id="titulo">Conoce Tu Edad</h1>   <!-- TITULO EN LA PAGINA -->
+
+<!---------------------------------------------------------------------------------------------------------->
+    <!-- BOTONES DE IDIOMAS -->
+    <hr>
+    <div id="idioma">
+      <button onclick="cambiarIdioma('es')">Español</button>
+      <button onclick="cambiarIdioma('en')">Inglés</button>
+      <button onclick="cambiarIdioma('pt')">Portugués</button>
+      <button onclick="cambiarIdioma('de')">Alemán</button>
+      <button onclick="cambiarIdioma('fr')">Francés</button>
+    </div>
+    <hr>
+<!---------------------------------------------------------------------------------------------------------->
+
+    <h3 id="descripcion" class="descripcion">Hola a tod@s!!! Bienvenidos a mi app web, as uso de ella para
+      calcular tu edad, ella te responderá con tu edad en AÑOS, MESES, SEMANAS Y DIAS CON HORAS. 
+      Tus datos te dará con referencia hasta el día de hoy, además de darte tu edad, te dirá a que signo del 
+      Zodiaco perteneces, te mostrará el significado de tu signo, y para rematar, te dará un consejo 
+      de los preestablecidos en la programación hecha en esta app web. <br> Adicional he añadido en esta nueva versión 
+      mis redes sociales, puedes descargar el resultado como imagen, eh agregado un botón de menú, para que te 
+      desplaces a cualquier seccion de la página que te interese, así mismo podrás comentar logándote con tu perfil 
+      de Facebook, y como podrás notar, he añadido un icono a la pestaña de esta ventana, y estoy más que 
+      feliz con todo lo que estoy logrando en mi primer aplicación web. <br>
+      Estoy añadiendo un botón de chat, para que tengan algo más en que puedan entretenerse en mi app web 
+      obvio será algo sencillo, pero podrás interactuar con otras personas y hacer amistades.</h3>  <!-- PARRAFO DE BIENVENIDA Y DE INFO DEL FUNCIONAMIENTO DE LA APP -->
+      <hr/>
+  </header>
+
+<!---------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------->
+   
+<!-- Menú despegable de navegacionen la pagina -->
+<div class="contenedorMenu">
+    <nav class="navegMenu">
+      <img src="/assets/icons/menu.png" alt="menu.ico" class="menuIco" id="menuIco">
+      <ul class="listMenu oculto">
+        <li><a href="#titulo">Conoce Tu Edad</a></li>
+        <li><a href="#idioma">Idiomas</a></li>
+        <li><a href="#descripcion">Descripción</a></li>
+        <li><a href="#capturar">Botón Capturar</a></li>
+        <li><a href="#formulario">Formulario</a></li>
+        <li><a href="#resultado">Mi Resultado</a></li>
+        <li><a href="#redesSociales">Redes Sociales</a></li>
+        <li><a href="#fb-comments">Ver/Comentar</a></li>
+        <li><a href="#viral">Viralizame</a></li>
+        <li><a href="#compartir">Compartir</a></li>
+        <li><a href="#sobreMi">Sobre Mi</a></li>
+        <li><a href="#desarrollador">Desarrollador</a></li>
+      </ul>
+    </nav>
+    
+   </div>
+
+
+
+    <!-- BOTON CAPTURAR RESULTADO -->
+    <section style="text-align: center;"> 
+      <button id="capturar">Capturar Resultado</button>
+      <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0/dist/html2canvas.min.js"></script> <!-- Libreria de HTML2CANVAS para generar imagenes del contenido -->
+    </section>
+
+  
+<!-- LLENAR FORMULARIO, 1. GENERO (HOMBRE, MUJER), 2. INGRESAR FECHA DE NACIMIENTO, 3. BOTON CALCULAR EDAD, 4. BOTON RESETEAR-->
+  <div id="formul">
+    <div id="formulario" >
+      <label class="generoStyle" for="genero">Género:</label>                        <!-- Titulo, Género -->
+
+      <select id="generoOp">                                       <!-- Lo que contiene la seleccion de Genero -->
+        <option value="hombre">Hombre</option>
+        <option value="mujer">Mujer</option>
+      </select>
+
+      <br>
+      <label  for="fecha" class="fechaST" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">Fecha de Nacimiento:</label>
+      <input type="date" id="fechaS">
+      <br>
+
+      <button id="calcularE" class="calcularE" onclick="calcularEdad()">Calcular Edad</button>
+      <br id="espacio"/>
+      <button  class="resetF" onclick="resetear()">Resetear</button>
+    </div>
+  </div>
+<hr>
+
+<!---------------------------------------------------------------------------------------------------------->
+
+<!-- SECCION DEL RESULTADO, ORDEN EN QUE SE MOSTRARA -->
+
+  <div id="formul">
+    <div id="capture"> 
+      <div id="resultado"> 
+        <div id="edad2"></div>
+        <div id="edad"></div>
+        <div id="horoscopo"></div>
+        <div id="significado"></div>
+        <div id="consejo"></div>
+      </div>
+    </div>
+<hr>
+
+<!-- SECCION DE REDES SOCIALES DEL DESARROLLADOR -->
+    <div id="redesSociales" class="redesSociales">
+      <h2>Redes Socilales de mi Desarrollador</h2>
+      <br>
+      <div class="iconosRedes">
+        <a href="https://www.facebook.com/cardenassilvaluis">
+          <img src="/assets/icons/facebook.png" alt="Facebook.ico" class="redesSo">
+        </a>
+        <a href="https://www.instagram.com/cardenasluis_im/">
+          <img src="/assets/icons/instagram.png" alt="Instagram.ico" class="redesSo">
+        </a>
+        <a href="https://twitter.com/CardenasLuisLCS">
+          <img src="/assets/icons/gorjeo.png" alt="Twiter.ico" class="redesSo">
+        </a>
+        <a href="https://www.youtube.com/channel/UCr0Jy4fjVtMBWVaHSPuT_pQ">
+          <img src="/assets/icons/youtube.png" alt="youtube.ico" class="redesSo">
+        </a>
+        <a href="https://www.linkedin.com/in/luis-alberto-c%C3%A1rdenas-silva-292561185/">
+          <img src="/assets/icons/linkedin.png" alt="Linkedin.ico" class="redesSo">
+        </a>
+        <a href="https://www.tiktok.com/@luallcs">
+          <img src="/assets/icons/tik-tok.png" alt="Tiktok.ico" class="redesSo">
+        </a>
+        <a href="https://wa.me/593968058733">
+          <img src="/assets/icons/whatsapp.png" alt="Whatsapp.ico" class="redesSo">
+        </a>
+      </div>
+    </div>
+    <hr>
+
+    <!-- SECCION DE COMENTARIOS DE FACEBOOK -->
+    <div>
+      <h6>Deja tu comentario</h6>
+      <div style="text-align: center; margin: 10px;">
+        <fb:login-button 
+          scope="public_profile,email"
+          onlogin="checkLoginState();">
+        </fb:login-button>
+      </div>
+    </div>
+      <div 
+        id="fb-comments" 
+        class="fb-comments" 
+        data-href="https://conoce-tu-edad-lual-lcs.web.app/" 
+        width="450" 
+        data-numposts="10"></div>
+  </div>
+
+
+<!-- ------------------------------------------ --> 
+
+  <hr/>
+
+<!---------------------------------------------------------------------------------------------------------->
+<script>
+  var botonCapturar = document.getElementById("capturar");
+  var elementoHTML = document.getElementById("capture");
+
+    botonCapturar.addEventListener("click", function() {
+      html2canvas(elementoHTML).then(function(canvas) {
+        
+        var imagen = canvas.toDataURL("image/png");
+        descargarImagenT(imagen);
+      });
+    });
+
+        function descargarImagenT(imagen) {
+        setTimeout(function() {
+        var enlace = document.createElement("a");
+        enlace.href = imagen;
+        enlace.download = "mi_resultado.png";
+        enlace.click();
+      }, 3000); // Esperar 3 segundos antes de descargar la imagen
+    }
+        
+</script>
+
+
+
+<div class="capturita">
+  <div id="resultadoImg">
+    <!-- VISTA PREVIA DE LA IMAGEN   <div id="preview-container">Captura Aquí...</div>  </div>   <button onclick="descargarImagenT()" class="gresult">Guardar Resultado</button>  <img id="preview-image"> -->
+</div>
+
+    <!-- CONTADOR DE USUARIOS -->
+  <!--  <div id="contador">
+      <h2>Contador de visitas</h2>
+      <p>Total de visitas de: <span id="today_count"></span></p>
+      <p>Usuarios online: <span id="online_users"></span></p>
+      <p>Total de visitas de la semana: <span id="week_count"></span></p>
+      <p>Total de visitas del mes: <span id="month_count"></span></p>
+      <p>Visitas del mes pasado: <span id="prev_month_count"></span></p>
+      <p>Visitas del año: <span id="year_count"></span></p>
+      <p>Visitas totales: <span id="total_count"></span></p>
+
+    </div> -->
+
+
+<!-- ----------------------------------------------------------------------------------------------- --> 
+
+<!--
+
+<div id="chat-container">
+  <div id="chat-header">
+    <h2>Chat</h2>
+    <button id="minimize-chat-btn">-</button>
+  </div>
+  <div id="chat-messages"></div>
+  <form id="chat-form">
+    <input type="text" id="chat-username" placeholder="Nombre de usuario">
+    <input type="text" id="chat-message" placeholder="Escribe un mensaje...">
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
+-->
+
+
+
+
+
+
+<!-- SECCION DE PARRAFO MOTIVANDO A QUE LOS USUARIOS COMPARTAN EL ENLACE -->
+<div id="viral">
+  <h2>Viralisame:</h2>
+  <p>Has que tu familia y amig@s me conoscan, para que puedan ver su edad y demas funciones que 
+  tengo presentes hasta ahora. Si te gustó mi contenido, dejame tus sugerencias en mi correo: 
+  betitocardenas1991@gmail.com atendere con brevedad tu sugerencia, y la tendre muy encuenta. 
+  Ayudame a mejorar para hacerme una app web más entretenida.
+  </p>
+</div>
+
+
+
+<!---------------------------------------------------------------------------------------------------------->
+
+    <!-- Botones para compartir - instagram - facebook - guardar como imagen - guardar imagen -->
+
+    <div id="compartir">
+      <button id="compartir-instagram" onclick="window.open('https://www.instagram.com/sharer.php?u=https://conoce-tu-edad-lual-lcs.web.app/&media=[URL de la imagen]&description=[Descripción]', '_blank')">Compartir en Instagram</button>
+      <button id="compartir-facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://conoce-tu-edad-lual-lcs.web.app/', '_blank')">Compartir en Facebook</button>
+      <button id="compartir-twiter" onclick="window.open('https://twitter.com/intent/tweet?u=https://conoce-tu-edad-lual-lcs.web.app/', '_blank')">Compartir en Twitter</button>
+    </div>
+
+<!---------------------------------------------------------------------------------------------------------->
+
+<!-- SECCION DE CAPTURA Y DESCARGA DE IMAGEN -->
+
+<!---------------------------------------------------------------------------------------------------------->    
+
+
+
+  <div id="sobreMi">
+    <h2 style="color: chocolate;">Sobre mi:</h2>
+    <p>Soy un programa en proceso de creacion, mi desarrollador, no es aun experimentado, por lo que soy
+      su primer experimento en creacion y publicacion, por lo que podrias encontrar errores en mi funcionamiento,
+      pero podrias dejarme tus sugerencias, asi mi desarrollador podra ir corrigiendo los erres que encuentres 
+      en mi funcionamiento. De mi parte y de mi desarrollador, te damos las gracias por estar aqui, soy una app web
+      hecha netamente para entretenimiento, pero con el pasar del tiempo tendre mejoras considerables.
+    </p>
+
+    <h2 style="color: chocolate;">Version:</h2>
+    <p id="Beta">V 1.1.1</p>
+  </div>
+
+<!-- ====================================================================================================== -->
+
+  <div id="desarrollador">
+    <h2 style="color: chocolate;">Desarrollador:</h2>
+    <p>Lual LCS (Luis Cárdenas Silva)  </p>
+
+    <h2 style="color: chocolate;">Nacionalidad:</h2>
+    <p>ECUADOR</p>
+  </div>
+
+<!---------------------------------------------------------------------------------------------------------->
+
+  <!-- IMPORTACION DE LA CONFIGURACION DE FIREBASE Y DE LA BIBLIOTECA DE DATABASE 
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js"></script>-->
+  
+  <script>
+    // Inicializa la configuración de Firebase
+   
+  </script>
+
+<!-- SECCION DE CHAT -->
+<button id="botonMinMax">Min/Max<br>Chat</button> <!-- Boton Para mostrar el chat y que al mostrar el boton se oculte -->
+<div id="chat-window" class="mini"> <!-- Contenedor principal de toda la ventana del chat -->
+
+  <!-- CONTENEDOR DE LA VENTANA DEL CHAT -->
+  <div id="chat-container" class="minimized">
+    
+    <div id="chat-header">
+      <button id="minChat">--</button> <!-- Boton para ocultar el chat, y este activara el boton mostrar chat -->
+      <div class="tit">
+        <h2>Chatea con el mundo</h2>
+        <br>
+        <p>Se cordial y suma amigos</p>
+      </div>
+    </div>
+
+    <div>
+      <div id="chat-messages"></div> <!-- Aqui se debe ver todas las conversaciones con el nombre del usuario, mensaje, y hora que envio el mensaje. -->
+      <form id="chat-form">
+        <input type="text" id="chat-username" placeholder="Nombre de usuario">
+        <input type="text" id="chat-message" placeholder="Escribe un mensaje...">
+        <button type="submit">Enviar</button> <!-- Este boton mostrara el mensaje en el div "chat-messages" de la misma manera tambiene nviara el mensaje a la base de datos que sera que actualizara el div contenedor de las conversaciones. -->
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!------------------------------------- <script src="guardar.js"></script> ------------- <script src="capturarImagenDescargar.js"></script> -------------------------------------------------------->
+
+  <script src="moment.js"></script>
+  <script src="appJS/horoscopo.js"></script>
+  <script src="compartirRedes.js"></script>
+  <script src="appJS/menuOcult.js"></script>
+  
+  <script src="appJS/app.js"></script>
+  
+  
+
+<!-- Seccion de comentario de facebook, complemento -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="http://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v17.0" nonce="wVAMkcM7"></script>
+
+<!-- ================================================================================================ -->
+<!-- ================================================================================================ -->
+</body>
+</html>
